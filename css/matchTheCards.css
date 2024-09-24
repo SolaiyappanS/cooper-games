@@ -1,0 +1,115 @@
+#tiles {
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 48px auto;
+  width: max-content;
+  display: grid;
+  grid-template-columns: repeat(6, 90px);
+  gap: 16px;
+  box-sizing: border-box;
+}
+
+.tile {
+  height: 120px;
+  background-color: #009fc7;
+  cursor: pointer;
+  border: #0000 solid 5px;
+  border-radius: 5px;
+  font-size: 50px;
+  word-wrap: break-word;
+  word-break: break-all;
+  text-align: center;
+  line-height: 120px;
+  color: #fff;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#buttons {
+  position: fixed;
+  width: 50vw;
+  height: 60vh;
+  top: 45%;
+  left: 50%;
+  background-color: #fff;
+  transform: translate(-50%, -40%);
+  display: none;
+  border-radius: 10px;
+}
+
+#buttons button {
+  background-color: #009fc7;
+  color: #fff;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 30px;
+  font-size: 30px;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin: auto 15px;
+  position: absolute;
+  bottom: 10%;
+}
+
+#buttons .button1 {
+  left: 10%;
+}
+
+#buttons .button2 {
+  right: 10%;
+}
+
+#buttons h1 {
+  font-family: "Lato", sans-serif;
+  color: #009fc7;
+  font-size: 45px;
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.paired {
+  background-color: #fff;
+  color: #009fc7;
+  border: #009fc7 solid 5px;
+}
+
+.icon_svg svg {
+  height: 65px;
+  width: 65px;
+  margin-top: 30px;
+}
+
+.icon_svg svg path,
+.icon_svg svg circle,
+.icon_svg svg rect {
+  fill: currentColor; /* This allows the SVG to inherit the text color */
+}
+
+#trophy {
+  width: 200px;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#cooper_logo {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+}
+
+#coopergames_logo {
+  position: fixed;
+  bottom: 5%;
+  left: 3%;
+  top: auto;
+  width: 250px;
+}

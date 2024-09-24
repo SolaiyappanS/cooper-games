@@ -1,0 +1,94 @@
+.wrapper {
+  width: 90%;
+  max-width: 34.37em;
+  max-height: 90vh;
+  background-color: #0000;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  padding: 3em;
+}
+.sw-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+#wheel {
+  max-height: inherit;
+  width: inherit;
+  top: 0;
+  padding: 0;
+}
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+#spin-btn {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  height: 26%;
+  width: 26%;
+  border-radius: 50%;
+  cursor: pointer;
+  border: #fff solid 3px;
+  background-color: #ff9a00;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.8em;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+#arrow-img {
+  position: absolute;
+  width: 4em;
+  top: 45%;
+  right: -8%;
+}
+#final-value {
+  font-size: 1.5em;
+  text-align: center;
+  margin-top: 1.5em;
+  color: #009fc7;
+  font-weight: 500;
+}
+@media screen and (max-width: 768px) {
+  .wrapper {
+    font-size: 12px;
+  }
+  #arrow-img {
+    right: -5%;
+  }
+}
+
+#cooper_logo {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  width: auto;
+  top: auto;
+}
+
+#coopergames_logo {
+  position: fixed;
+  bottom: 5%;
+  left: 3%;
+  top: auto;
+  width: 250px;
+}
+
+#detail-box {
+  width: 15vw;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  left: auto;
+  bottom: auto;
+  color: #009fc7;
+  font-size: 20px;
+  text-align: justify;
+}

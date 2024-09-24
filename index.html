@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cooper Games</title>
+    <script src="js/fontawesome.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/spinTheWheel.css" />
+    <link rel="stylesheet" href="css/matchTheCards.css" />
+    <link rel="stylesheet" href="css/guessTheWord.css" />
+  </head>
+  <body>
+    <div id="match-the-cards">
+      <h1 class="header">Match the Cards</h1>
+      <div id="tiles"></div>
+      <div id="buttons">
+        <h1>You Won</h1>
+        <img id="trophy" src="img/trophy.svg" />
+        <button class="button1" onclick="refreshGame('match-the-cards')">
+          Play Again
+        </button>
+        <button class="button2" onclick="showGame('mortgage-quiz')">
+          Next Game
+        </button>
+      </div>
+    </div>
+    <div id="mortgage-quiz" class="hide">
+      <h1 class="header">Guess the word</h1>
+      <div class="gw-container">
+        <p id="heart-container">❤️🤍</p>
+        <div id="hint-container"></div>
+        <div id="user-input-section"></div>
+        <div id="letter-container" class="letter-container"></div>
+        <div id="win-container" class="new-game-popup hide">
+          <h1>CORRECT</h1>
+          <h2>The word is "<span id="chosenWord_1"></span>"</h2>
+          <img class="result_svg" src="img/happy.svg" />
+          <button id="win-button">Next Word</button>
+        </div>
+        <div id="lose-container" class="new-game-popup hide">
+          <h1 style="color: #f55">INCORRECT</h1>
+          <h2>The word is "<span id="chosenWord_2"></span>"</h2>
+          <img class="result_svg" src="img/sad.svg" />
+          <button id="lose-button">Next Word</button>
+        </div>
+        <div id="next_game" class="hide">
+          <button class="button1" onclick="refreshGame('mortgage-quiz')">
+            Play Again
+          </button>
+          <button class="button2" onclick="showGame('spin-the-wheel')">
+            Next Game
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="spin-the-wheel" class="hide">
+      <h1 class="header">Spin the Wheel</h1>
+      <div class="wrapper">
+        <div class="sw-container">
+          <canvas id="wheel"></canvas>
+          <button id="spin-btn">Spin</button>
+        </div>
+        <img
+          id="arrow-img"
+          style="width: 100px; transform: translateY(-75%); rotate: -45deg"
+          src="img/arrow.svg"
+          alt="arrow"
+        />
+        <div id="final-value">
+          <p>Click On The Spin Button To Start</p>
+        </div>
+        <p
+          id="detail-box"
+          style="
+            position: fixed;
+            top: 50%;
+            right: -50%;
+            left: auto;
+            bottom: auto;
+          "
+        ></p>
+      </div>
+    </div>
+
+    <div id="score-container">
+      <p>Current Game Points: <span id="current-score">0</span></p>
+      <p>Total Points: <span id="total-score">0</span></p>
+      <p id="timer"></p>
+    </div>
+
+    <img id="coopergames_logo" src="img/coopergames.svg" alt="coopergames" />
+    <img id="cooper_logo" src="img/mrcooper.svg" alt="mrcooper" />
+
+    <audio id="winSound" src="aud/round_end.wav"></audio>
+    <audio id="spinSound" src="aud/spinning.ogg"></audio>
+    <audio id="coinSound" src="aud/smb_coin.wav"></audio>
+    <audio id="loseSound" src="aud/losetrumpet.mp3"></audio>
+    <audio id="heartPopSound" src="aud/buzzer.mp3"></audio>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.1.0/chartjs-plugin-datalabels.min.js"></script>
+
+    <script src="js/common.js"></script>
+    <script src="js/matchTheCards.js"></script>
+    <script src="js/guessTheWord.js"></script>
+    <script src="js/spinTheWheel.js"></script>
+  </body>
+</html>
