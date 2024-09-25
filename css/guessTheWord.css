@@ -125,14 +125,8 @@ span.dashes {
   margin: auto 15px;
   position: absolute;
   bottom: 10%;
-}
-
-#next_game .button1 {
-  left: 10%;
-}
-
-#next_game .button2 {
-  right: 10%;
+  left: 47.5%;
+  transform: translateX(-50%);
 }
 
 #cooper_logo {

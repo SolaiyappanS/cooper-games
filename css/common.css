@@ -23,8 +23,10 @@ h1.header {
 #score-container {
   color: #009fc7;
   font-size: 20px;
-  text-align: right;
   position: fixed;
-  top: 10%;
+  top: 5%;
   right: 10%;
+  border: #009fc7 solid 5px;
+  border-radius: 10px;
+  padding: 20px;
 }

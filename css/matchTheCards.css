@@ -28,7 +28,9 @@
   font-style: normal;
 }
 
-#buttons {
+#buttons,
+#you-lost,
+#finalScore {
   position: fixed;
   width: 50vw;
   height: 60vh;
@@ -40,7 +42,8 @@
   border-radius: 10px;
 }
 
-#buttons button {
+#buttons button,
+#you-lost button {
   background-color: #009fc7;
   color: #fff;
   outline: none;
@@ -54,17 +57,13 @@
   margin: auto 15px;
   position: absolute;
   bottom: 10%;
+  left: 47.5%;
+  transform: translateX(-50%);
 }
 
-#buttons .button1 {
-  left: 10%;
-}
-
-#buttons .button2 {
-  right: 10%;
-}
-
-#buttons h1 {
+#buttons h1,
+#you-lost h1,
+#finalScore h1 {
   font-family: "Lato", sans-serif;
   color: #009fc7;
   font-size: 45px;
@@ -72,6 +71,18 @@
   top: 5%;
   left: 50%;
   transform: translateX(-50%);
+}
+
+#finalScore p {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
+  color: #009fc7;
+  font-size: 25px;
+  width: 100%;
+  text-align: center;
 }
 
 .paired {
@@ -92,7 +103,9 @@
   fill: currentColor; /* This allows the SVG to inherit the text color */
 }
 
-#trophy {
+#trophy,
+#game-over,
+.thanks_for_playing {
   width: 200px;
   position: absolute;
   top: 25%;
@@ -112,4 +125,29 @@
   left: 3%;
   top: auto;
   width: 250px;
+}
+
+#timer-container {
+  color: #009fc7;
+  border: #009fc7 solid 5px;
+  position: fixed;
+  top: 50%;
+  right: 10%;
+  transform: translateY(-50%);
+  padding: 20px;
+  font-weight: bold;
+  background-color: #fff;
+  border-radius: 10px;
+  text-align: center;
+}
+
+#timer {
+  display: block;
+  font-size: 30px;
+  margin-top: 20px;
+}
+
+#timer-container.danger {
+  border-color: #f55;
+  color: #f55;
 }

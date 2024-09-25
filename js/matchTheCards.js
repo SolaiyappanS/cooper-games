@@ -58,6 +58,9 @@ function buildTile(value) {
       if (revealedCount === tileCount) {
         playSound("winSound");
         document.getElementById("buttons").style.display = "block";
+        gamePoints[0] = 500;
+        showPoints(0);
+        clearInterval(xInterval);
       } else playSound("coinSound");
 
       return;

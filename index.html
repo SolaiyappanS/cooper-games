@@ -23,13 +23,18 @@
       <div id="buttons">
         <h1>You Won</h1>
         <img id="trophy" src="img/trophy.svg" />
-        <button class="button1" onclick="refreshGame('match-the-cards')">
-          Play Again
-        </button>
         <button class="button2" onclick="showGame('mortgage-quiz')">
           Next Game
         </button>
       </div>
+      <div id="you-lost" class="hide">
+        <h1>Game Over</h1>
+        <img id="game-over" src="img/sad-svgrepo-com.svg" />
+        <button class="button2" onclick="showGame('mortgage-quiz')">
+          Next Game
+        </button>
+      </div>
+      <p id="timer-container">Time Remaining<span id="timer">01:30</span></p>
     </div>
     <div id="mortgage-quiz" class="hide">
       <h1 class="header">Guess the word</h1>
@@ -51,9 +56,6 @@
           <button id="lose-button">Next Word</button>
         </div>
         <div id="next_game" class="hide">
-          <button class="button1" onclick="refreshGame('mortgage-quiz')">
-            Play Again
-          </button>
           <button class="button2" onclick="showGame('spin-the-wheel')">
             Next Game
           </button>
@@ -87,12 +89,21 @@
           "
         ></p>
       </div>
+      <div id="finalScore" class="hide">
+        <h1>Thanks for Playing</h1>
+        <img
+          class="thanks_for_playing"
+          src="img/box-celebration-gift-svgrepo-com.svg"
+        />
+        <p>
+          You've Scored <span id="total-score-final">0</span> Showcase Points
+        </p>
+      </div>
     </div>
 
     <div id="score-container">
       <p>Current Game Points: <span id="current-score">0</span></p>
       <p>Total Points: <span id="total-score">0</span></p>
-      <p id="timer"></p>
     </div>
 
     <img id="coopergames_logo" src="img/coopergames.svg" alt="coopergames" />

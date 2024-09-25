@@ -13,6 +13,9 @@ function showGame(gameName) {
   document.getElementById("mortgage-quiz").classList.add("hide");
   document.getElementById("spin-the-wheel").classList.add("hide");
   document.getElementById(gameName).classList.remove("hide");
+  if (gameName === "match-the-cards") showPoints(0);
+  else if (gameName === "mortgage-quiz") showPoints(1);
+  else if (gameName === "spin-the-wheel") showPoints(2);
 }
 
 function refreshGame(gameName) {
@@ -22,7 +25,7 @@ function refreshGame(gameName) {
 
 var duration = 90;
 
-var x = setInterval(function () {
+var xInterval = setInterval(function () {
   // Time calculations for days, hours, minutes and seconds
   var minutes = Math.floor(duration / 60);
   var min = minutes > 9 ? minutes : "0" + minutes;
@@ -30,15 +33,27 @@ var x = setInterval(function () {
   var sec = seconds > 9 ? seconds : "0" + seconds;
 
   // Display the result in the element with id="demo"
-  document.getElementById("timer").innerHTML =
-    "Time Remaining: " + min + ":" + sec;
+  document.getElementById("timer").innerHTML = min + ":" + sec;
 
   duration -= 1;
 
+  if (duration < 30) {
+    document.getElementById("timer-container").classList.add("danger");
+  }
+
   // If the count down is finished, write some text
   if (duration < 0) {
-    clearInterval(x);
-    document.getElementById("timer").classList.add("hide");
-    document.getElementById("buttons").style.display = "block";
+    clearInterval(xInterval);
+    document.getElementById("timer-container").classList.add("hide");
+    document.getElementById("you-lost").style.display = "block";
+    playSound("loseSound");
   }
 }, 1000);
+
+var gamePoints = [0, 0, 0];
+
+function showPoints(gameNumber) {
+  document.getElementById("current-score").innerHTML = gamePoints[gameNumber];
+  document.getElementById("total-score").innerHTML =
+    gamePoints[0] + gamePoints[1] + gamePoints[2];
+}

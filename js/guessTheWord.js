@@ -68,6 +68,8 @@ const displayOptions = () => {
 
 //Block all the Buttons
 const youWin = () => {
+  gamePoints[1] += 50;
+  showPoints(1);
   playSound("winSound");
   let optionsButtons = document.querySelectorAll(".options");
   let letterButtons = document.querySelectorAll(".letters");

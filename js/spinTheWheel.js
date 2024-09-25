@@ -3,22 +3,26 @@ const spinBtn = document.getElementById("spin-btn");
 const finalValue = document.getElementById("final-value");
 //Object that stores values of minimum and maximum angle for a value
 const rotationValues = [
-  { minDegree: 0, maxDegree: 54, value: "+500" },
-  { minDegree: 55, maxDegree: 90, value: "+1000" },
-  { minDegree: 91, maxDegree: 144, value: "+500" },
-  { minDegree: 145, maxDegree: 216, value: "+100" },
-  { minDegree: 216, maxDegree: 270, value: "Spin Again" },
-  { minDegree: 271, maxDegree: 360, value: "+100" },
+  { minDegree: 1, maxDegree: 45, value: "1000" },
+  { minDegree: 46, maxDegree: 90, value: "100" },
+  { minDegree: 91, maxDegree: 135, value: "200" },
+  { minDegree: 136, maxDegree: 180, value: "500" },
+  { minDegree: 181, maxDegree: 225, value: "100" },
+  { minDegree: 226, maxDegree: 270, value: "Retry" },
+  { minDegree: 271, maxDegree: 315, value: "200" },
+  { minDegree: 316, maxDegree: 360, value: "100" },
 ];
 //Size of each piece
-const data = [10, 15, 25, 15, 20, 15];
+const data = [10, 10, 10, 10, 10, 10, 10, 10];
 //background color for each piece
 var pieColors = [
-  "#3ec050",
+  "#026f8a",
+  "#00af97",
+  "#026f8a",
   "#009fc7",
-  "#01c5f6",
-  "#009fc7",
-  "#01c5f6",
+  "#00af97",
+  "#026f8a",
+  "#00af97",
   "#009fc7",
 ];
 //Create chart
@@ -29,7 +33,7 @@ let myChart = new Chart(wheel, {
   type: "pie",
   data: {
     //Labels(values which are to be displayed on chart)
-    labels: ["+1000", "+500", "+100", "Spin Again", "+100", "+500"],
+    labels: ["100", "1000", "100", "200", "Retry", "100", "500", "200"],
     //Settings for dataset/pie
     datasets: [
       {
@@ -64,8 +68,19 @@ const valueGenerator = (angleValue) => {
     //if the angleValue is between min and max then display it
     if (angleValue >= i.minDegree && angleValue <= i.maxDegree) {
       finalValue.innerHTML = `<b>${i.value}</b>`;
-      spinBtn.disabled = false;
-      break;
+
+      if (i.value === "Retry") {
+        spinBtn.disabled = false;
+        playSound("coinSound");
+        break;
+      } else {
+        gamePoints[2] = parseInt(i.value);
+        showPoints(2);
+        playSound("winSound");
+        document.getElementById("finalScore").style.display = "block";
+        document.getElementById("total-score-final").innerHTML =
+          gamePoints[0] + gamePoints[1] + gamePoints[2];
+      }
     }
   }
 };
