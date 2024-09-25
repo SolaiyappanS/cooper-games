@@ -81,6 +81,7 @@ const valueGenerator = (angleValue) => {
           document.getElementById("finalScore").style.display = "block";
           document.getElementById("total-score-final").innerHTML =
             gamePoints[0] + gamePoints[1] + gamePoints[2];
+          document.getElementById("spin-container").classList.add("hide");
         }, 2000);
       }
     }
