@@ -29,4 +29,5 @@ h1.header {
   border: #009fc7 solid 5px;
   border-radius: 10px;
   padding: 20px;
+  font-weight: bold;
 }

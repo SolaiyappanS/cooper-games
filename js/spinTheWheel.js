@@ -76,10 +76,12 @@ const valueGenerator = (angleValue) => {
       } else {
         gamePoints[2] = parseInt(i.value);
         showPoints(2);
-        playSound("winSound");
-        document.getElementById("finalScore").style.display = "block";
-        document.getElementById("total-score-final").innerHTML =
-          gamePoints[0] + gamePoints[1] + gamePoints[2];
+        setTimeout(() => {
+          playSound("winSound");
+          document.getElementById("finalScore").style.display = "block";
+          document.getElementById("total-score-final").innerHTML =
+            gamePoints[0] + gamePoints[1] + gamePoints[2];
+        }, 2000);
       }
     }
   }
