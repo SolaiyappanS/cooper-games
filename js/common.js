@@ -1,3 +1,5 @@
+var currentGame = "match-the-cards";
+
 function playSound(soundName) {
   document.getElementById(soundName).currentTime = 0;
   document.getElementById(soundName).volume = 0.1;
@@ -13,6 +15,7 @@ function showGame(gameName) {
   document.getElementById("mortgage-quiz").classList.add("hide");
   document.getElementById("spin-the-wheel").classList.add("hide");
   document.getElementById(gameName).classList.remove("hide");
+  currentGame = gameName;
   if (gameName === "match-the-cards") showPoints(0);
   else if (gameName === "mortgage-quiz") showPoints(1);
   else if (gameName === "spin-the-wheel") showPoints(2);

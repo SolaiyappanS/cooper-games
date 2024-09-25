@@ -11,6 +11,19 @@ const chosenWordContainer_2 = document.getElementById("chosenWord_2");
 const nextGameContainer = document.getElementById("next_game");
 const heartContainer = document.getElementById("heart-container");
 let wordsCount = 0;
+var canInitialize = true;
+var wordList = [];
+
+document.addEventListener("keypress", (e) => {
+  if (
+    currentGame === "mortgage-quiz" &&
+    canInitialize &&
+    e.key.toLowerCase() === "enter"
+  ) {
+    if (wordsCount > 8) showGame("spin-the-wheel");
+    else initializer("continue");
+  }
+});
 
 //Options values for buttons
 let options = {
@@ -60,7 +73,6 @@ let chosenHint = "";
 
 //Display option buttons
 const displayOptions = () => {
-  let buttonCon = document.createElement("div");
   for (let value in options) {
     generateWord(`${value}`);
   }
@@ -68,6 +80,7 @@ const displayOptions = () => {
 
 //Block all the Buttons
 const youWin = () => {
+  canInitialize = true;
   gamePoints[1] += 50;
   showPoints(1);
   playSound("winSound");
@@ -92,6 +105,7 @@ const youWin = () => {
 
 //Block all the Buttons
 const youLost = () => {
+  canInitialize = true;
   playSound("loseSound");
   let optionsButtons = document.querySelectorAll(".options");
   let letterButtons = document.querySelectorAll(".letters");
@@ -151,6 +165,7 @@ function updateHearts() {
 
 //Initial Function (Called when page loads/user presses new game)
 const initializer = (type) => {
+  canInitialize = false;
   if (type === "new") wordsCount = 0;
   else wordsCount += 1;
 
@@ -173,13 +188,19 @@ const initializer = (type) => {
     button.setAttribute("id", "letter_" + String.fromCharCode(i));
     //Number to ASCII[A-Z]
     button.innerText = String.fromCharCode(i);
+    wordList.push(String.fromCharCode(i));
     //character button click
     button.addEventListener("click", () =>
       chooseLetter(chosenWord, button.innerText)
     );
-    document.addEventListener("keypress", (e) =>
-      chooseLetter(chosenWord, e.key)
-    );
+    document.addEventListener("keypress", (e) => {
+      if (
+        currentGame === "mortgage-quiz" &&
+        !canInitialize &&
+        wordList.includes(e.key.toUpperCase())
+      )
+        chooseLetter(chosenWord, e.key);
+    });
     if (letterContainer) letterContainer.append(button);
   }
 
