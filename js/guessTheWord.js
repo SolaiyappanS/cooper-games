@@ -52,7 +52,7 @@ let options = {
     },
     {
       word: "FICO",
-      hint: "A corporation that calculates credit scores assessing credit risk.",
+      hint: "Which score determines the eligibility of borrower?",
     },
     { word: "Collateral", hint: "Assets pledged as security for a loan" },
     {
