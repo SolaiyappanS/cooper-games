@@ -20,7 +20,7 @@ document.addEventListener("keypress", (e) => {
     canInitialize &&
     e.key.toLowerCase() === "enter"
   ) {
-    if (wordsCount > 8) showGame("spin-the-wheel");
+    if (wordsCount > 3) showGame("spin-the-wheel");
     else initializer("continue");
   }
 });
