@@ -42,23 +42,23 @@ let options = {
     },
     { word: "Delinquency", hint: "Failure to make payments on time" },
     { word: "Liabilities", hint: "A person's debts or financial obligations" },
-    {
-      word: "Prepayment",
-      hint: "An amount paid to reduce the principal balance of a loan before the principal is due",
-    },
-    {
-      word: "Forbearance",
-      hint: "Temporary suspension of loan payments due to financial hardship",
-    },
-    {
-      word: "FICO",
-      hint: "Which score determines the eligibility of borrower?",
-    },
-    { word: "Collateral", hint: "Assets pledged as security for a loan" },
-    {
-      word: "Escrow",
-      hint: "Funds held by a third party until conditions are met",
-    },
+    // {
+    //   word: "Prepayment",
+    //   hint: "An amount paid to reduce the principal balance of a loan before the principal is due",
+    // },
+    // {
+    //   word: "Forbearance",
+    //   hint: "Temporary suspension of loan payments due to financial hardship",
+    // },
+    // {
+    //   word: "FICO",
+    //   hint: "Which score determines the eligibility of borrower?",
+    // },
+    // { word: "Collateral", hint: "Assets pledged as security for a loan" },
+    // {
+    //   word: "Escrow",
+    //   hint: "Funds held by a third party until conditions are met",
+    // },
   ],
 };
 
@@ -97,7 +97,7 @@ const youWin = () => {
     button.disabled.true;
   });
   winContainer.classList.remove("hide");
-  if (wordsCount > 8) {
+  if (wordsCount > 3) {
     winButton.classList.add("hide");
     nextGameContainer.classList.remove("hide");
   }
@@ -120,7 +120,7 @@ const youLost = () => {
     button.disabled.true;
   });
   loseContainer.classList.remove("hide");
-  if (wordsCount > 8) {
+  if (wordsCount > 3) {
     loseButton.classList.add("hide");
     nextGameContainer.classList.remove("hide");
   }
