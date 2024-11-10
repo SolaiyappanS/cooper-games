@@ -1,5 +1,7 @@
 //Initial References
-const letterContainer = document.getElementById("letter-container");
+const letterContainer_1 = document.getElementById("letter-container_1");
+const letterContainer_2 = document.getElementById("letter-container_2");
+const letterContainer_3 = document.getElementById("letter-container_3");
 const hintContainer = document.getElementById("hint-container");
 const userInputSection = document.getElementById("user-input-section");
 const winContainer = document.getElementById("win-container");
@@ -138,7 +140,9 @@ const generateWord = (optionValue) => {
   });
 
   //initially hide letters, clear previous word
-  if (letterContainer) letterContainer.classList.remove("hide");
+  if (letterContainer_1) letterContainer_1.classList.remove("hide");
+  if (letterContainer_2) letterContainer_2.classList.remove("hide");
+  if (letterContainer_3) letterContainer_3.classList.remove("hide");
   if (userInputSection) userInputSection.innerText = "";
 
   let optionArray = options[optionValue];
@@ -176,19 +180,24 @@ const initializer = (type) => {
 
   //Initially erase all content and hide letteres and new game button
   if (userInputSection) userInputSection.innerHTML = "";
-  if (letterContainer) letterContainer.classList.add("hide");
+  if (letterContainer_1) letterContainer_1.classList.add("hide");
+  if (letterContainer_2) letterContainer_2.classList.add("hide");
+  if (letterContainer_3) letterContainer_3.classList.add("hide");
   if (winContainer) winContainer.classList.add("hide");
   if (loseContainer) loseContainer.classList.add("hide");
-  if (letterContainer) letterContainer.innerHTML = "";
+  if (letterContainer_1) letterContainer_1.innerHTML = "";
+  if (letterContainer_2) letterContainer_2.innerHTML = "";
+  if (letterContainer_3) letterContainer_3.innerHTML = "";
+
+  const KeyBoardKeys = "QWERTYUIOP" + "ASDFGHJKL" + "ZXCVBNM";
 
   //For creating letter buttons
-  for (let i = 65; i < 91; i++) {
+  for (let i = 0; i < KeyBoardKeys.length; i++) {
     let button = document.createElement("button");
     button.classList.add("letters");
-    button.setAttribute("id", "letter_" + String.fromCharCode(i));
-    //Number to ASCII[A-Z]
-    button.innerText = String.fromCharCode(i);
-    wordList.push(String.fromCharCode(i));
+    button.setAttribute("id", "letter_" + KeyBoardKeys[i]);
+    button.innerText = KeyBoardKeys[i];
+    wordList.push(KeyBoardKeys[i]);
     //character button click
     button.addEventListener("click", () =>
       chooseLetter(chosenWord, button.innerText)
@@ -201,7 +210,9 @@ const initializer = (type) => {
       )
         chooseLetter(chosenWord, e.key);
     });
-    if (letterContainer) letterContainer.append(button);
+    if (i <= 9 && letterContainer_1) letterContainer_1.append(button);
+    if (i > 9 && i <= 18 && letterContainer_2) letterContainer_2.append(button);
+    if (i > 18 && letterContainer_3) letterContainer_3.append(button);
   }
 
   displayOptions();
