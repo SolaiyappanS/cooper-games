@@ -6,7 +6,7 @@ function playSound(soundName) {
   if (soundName === "heartPopSound")
     document.getElementById(soundName).volume = 1;
   if (soundName === "loseSound")
-    document.getElementById(soundName).volume = 0.4;
+    document.getElementById(soundName).volume = 0.5;
   document.getElementById(soundName).play();
 }
 
