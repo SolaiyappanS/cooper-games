@@ -1,13 +1,13 @@
 var currentGame = "match-the-cards";
 
-function playSound(soundName) {
-  document.getElementById(soundName).currentTime = 0;
-  document.getElementById(soundName).volume = 0.1;
-  if (soundName === "heartPopSound")
-    document.getElementById(soundName).volume = 1;
-  if (soundName === "loseSound")
-    document.getElementById(soundName).volume = 0.4;
-  document.getElementById(soundName).play();
+function playSound(audioName) {
+  document.getElementById(audioName).currentTime = 0;
+  document.getElementById(audioName).volume = 0.1;
+  if (audioName === "heartPopSound")
+    document.getElementById(audioName).volume = 1;
+  if (audioName === "loseSound")
+    document.getElementById(audioName).volume = 0.4;
+  document.getElementById(audioName).play();
 }
 
 function showGame(gameName) {
