@@ -7,6 +7,8 @@ function playSound(soundName) {
     document.getElementById(soundName).volume = 1;
   if (soundName === "loseSound")
     document.getElementById(soundName).volume = 0.5;
+  if (soundName === "newSound")
+    document.getElementById(soundName).volume = 0;
   document.getElementById(soundName).play();
 }
 
